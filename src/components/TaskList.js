@@ -5,7 +5,7 @@ import Task from "./Task";
 
 
 function TaskList({removeTask, tasks}) {
-  console.log(tasks )
+  // console.log(tasks )
 
   const individualTasks = tasks.map((task)=>{
     return <Task removeTask={removeTask} key={task.text} text={task.text} category={task.category} />

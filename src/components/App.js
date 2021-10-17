@@ -14,12 +14,11 @@ function App() {
   
 
   const removeTask = (text)=>{
-       TASKS.filter((text)=> {
-         if (text !== TASKS.text){
-           return TASKS
-         }
-       })
+    // console.log(text)
+       const taskFilter =  TASKS.filter((task)=> task.text !== text)
+       setListOfTasks(taskFilter)
   }
+
 
 
   return (
