@@ -1,15 +1,14 @@
-import React, {usestate} from "react";
+import React from "react";
 import Task from "./Task";
 
-const[listOfTasks, setListOfTasks] = usestate(individualTasks)
 
 
 
-function TaskList(TASKS) {
-  // console.log( TASKS )
+function TaskList({removeTask, tasks}) {
+  console.log(tasks )
 
-  const individualTasks = TASKS.tasks.map((task)=>{
-    return <Task key={task.text} id={task.text} text={task.text} category={task.category} />
+  const individualTasks = tasks.map((task)=>{
+    return <Task removeTask={removeTask} key={task.text} text={task.text} category={task.category} />
   })
 
   return (
