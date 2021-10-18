@@ -4,7 +4,9 @@ import Task from "./Task";
 
 
 
-function TaskList({removeTask, tasks}) {
+function TaskList({removeTask, tasks, hasClass}) {
+
+  tasks.filter((task)=> task.category === hasClass)
   // console.log(tasks )
 
   const individualTasks = tasks.map((task)=>{

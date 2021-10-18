@@ -10,12 +10,17 @@ console.log({ CATEGORIES, TASKS });
 function App() {
 
   const[listOfTasks, setListOfTasks] = useState(TASKS)
+  const[hasClass, setHasClass] = useState("All")
 
+  const handleClass = (category) => {
+     setHasClass(category)
+
+  }
   
 
   const removeTask = (text)=>{
     // console.log(text)
-       const taskFilter =  TASKS.filter((task)=> task.text !== text)
+       const taskFilter =  listOfTasks.filter((task)=> task.text !== text)
        setListOfTasks(taskFilter)
   }
 
@@ -24,9 +29,9 @@ function App() {
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter />
+      <CategoryFilter hasClass={hasClass} handleClass={handleClass} categories={CATEGORIES} />
       <NewTaskForm />
-      <TaskList removeTask={removeTask} tasks={listOfTasks} />
+      <TaskList hasClass={hasClass} removeTask={removeTask} tasks={listOfTasks} />
     </div>
   );
 }
